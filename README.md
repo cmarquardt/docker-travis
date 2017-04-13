@@ -1,43 +1,39 @@
-# docker-travis-cli
+# docker-travis
 
-Dockerized version of [Travis Command Line Client](https://github.com/travis-ci/travis.rb)
-
-[![](https://images.microbadger.com/badges/version/caktux/travis-cli.svg)](https://microbadger.com/images/caktux/travis-cli "Get your own version badge on microbadger.com")
+Dockerized version of the  [Travis Command Line Client](https://github.com/travis-ci/travis.rb).
 
 ## Installation
 
-This image does not need to be run manually. Instead, there is a helper script
-to execute it.
-
-To install the helper script, copy the script `travis-cli` in your `PATH`:
+This image is not run manually; instead, use a helper shell script
+to execute it. To install the helper script, copy the script `travis` to your `PATH`, e.g.:
 
 ```shell
-curl https://raw.githubusercontent.com/caktux/travis-cli/master/travis-cli.sh \
-  -o ~/bin/travis-cli && \
-chmod +x ~/bin/travis-cli
+curl https://raw.githubusercontent.com/cmarquardt/docker-travis/master/travis.sh \
+  -o ~/bin/travis && \
+chmod +x ~/bin/travis
 ```
 
 ## Examples
 
 ### Encrypting environment variables
 ```shell
-travis-cli encrypt SECRET=123 -r org/repo
+travis encrypt SECRET=123 -r org/repo
 ```
 
 ### Interactive setup of `.travis.yml`
 ```shell
-travis-cli setup pypi
+travis setup pypi
 ```
 
 ### Validating your `.travis.yml` with travis lint
 ```shell
-travis-cli lint .travis.yml
+travis lint .travis.yml
 ```
 
 ## Usage
 
 ```shell
-$ travis-cli help
+$ travis help
 Usage: travis COMMAND ...
 
 Available commands:
@@ -79,7 +75,7 @@ Available commands:
 	whatsup        lists most recent builds
 	whoami         outputs the current user
 
-run `/usr/local/bundle/bin/travis help COMMAND` for more infos
+Run `travis help COMMAND` for more information.
 ```
 
 ## Maintenance
@@ -87,7 +83,7 @@ run `/usr/local/bundle/bin/travis help COMMAND` for more infos
 To rebuild the image:
 
 ```shell
-git clone git://github.com/caktux/travis-cli
+git clone git://github.com/cmarquardt/travis
 make build
 ```
 
@@ -100,5 +96,4 @@ make push
 
 ---
 
-Credits go to [sdt/docker-raspberry-pi-cross-compiler](https://github.com/sdt/docker-raspberry-pi-cross-compiler), who invented the base of the dockerized script.
-
+Credits go to [sdt/docker-raspberry-pi-cross-compiler](https://github.com/sdt/docker-raspberry-pi-cross-compiler), who invented the base of the dockerized script, and [jcfr/travis-cli](https://github.com/jcfr/docker-travis-cli), who provided a version of the dockerized Travis CLI client on which this one is based.

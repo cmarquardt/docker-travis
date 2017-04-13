@@ -9,7 +9,7 @@
 # If we are running from boot2docker, this is not necessary.
 # The dockcross script sets the BUILDER_UID and BUILDER_GID vars.
 
-if [[ -n $BUILDER_UID ]] && [[ -n $BUILDER_GID ]]; then
+if [[ x"$BUILDER_UID" != "x" ]] && [[ x"$BUILDER_GID" != "x" ]]; then
 
   addgroup -g $BUILDER_GID $BUILDER_GROUP
   adduser -u $BUILDER_UID -D -H -G $BUILDER_GROUP $BUILDER_USER

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FINAL_IMAGE=caktux/travis-cli
+FINAL_IMAGE=marq/travis
 
 #
 # If we are not running via boot2docker
@@ -18,4 +18,3 @@ docker run $TTY_ARGS --rm \
     -v $PWD:/project \
     $USER_IDS \
     $FINAL_IMAGE "$@"
-

@@ -6,10 +6,10 @@
 DOCKER = docker
 
 # Docker organization to pull the images from
-ORG = caktux
+ORG = marq
 
 # Name of image
-IMAGE = travis-cli
+IMAGE = travis
 
 build:
 	docker build \
